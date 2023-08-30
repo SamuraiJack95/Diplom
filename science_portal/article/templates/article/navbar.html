@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% load static %}
+<header class="header">
+    <div class="container container--narrow">
+      <a href="" class="header__logo">
+        <img src="{% static 'images/logo.jpg' %}" alt="DevSearch Logo" />
+      </a>
+      <nav class="header__nav">
+        <ul class="header__menu">
+          <li class="header__menuItem"><a href="">Статьи</a></li>
+          <li class="header__menuItem"><a href="">Профиль</a></li>
+          <li class="header__menuItem"><a href="">Сообщения / Общение</a></li>
+          <li class="header__menuItem"><a href="">Избранное</a></li>
+          <li class="header__menuItem"><a href="" class="btn btn--sub">Логин</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>

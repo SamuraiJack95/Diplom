@@ -1,7 +1,24 @@
 {% extends 'article/base.html' %}
-
+{% load static %}
 {% block content %}
-<div>
-  12345
+{% include 'article/navbar.html' %}
+<div class="content">
+    <div class="wrap">
+        <h1>Научные статьи</h1>
+
+        <div class="block">
+            {% for articl in article %}
+            <div class="element">
+                <div>
+                    <img src="{{ articl.featured_image.url }}" alt="">
+                </div>
+                <div class="text">
+                    <h2><a href="{{ articl.url }}" target="_blank">{{ articl.title| truncatechars:50 }}</a></h2>
+                    <p class="text_art">{{ articl.description| truncatechars:120 }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 </div>
 {% endblock %}
