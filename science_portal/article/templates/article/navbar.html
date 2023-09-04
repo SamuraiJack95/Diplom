@@ -1,16 +1,20 @@
 {% load static %}
 <header class="header">
     <div class="container container--narrow">
-      <a href="" class="header__logo">
+      <a href="{% url 'start' %}" class="header__logo">
         <img src="{% static 'images/logo.jpg' %}" alt="DevSearch Logo" />
       </a>
       <nav class="header__nav">
         <ul class="header__menu">
-          <li class="header__menuItem"><a href="">Статьи</a></li>
-          <li class="header__menuItem"><a href="">Профиль</a></li>
-          <li class="header__menuItem"><a href="">Сообщения / Общение</a></li>
+          <li class="header__menuItem"><a href="{% url 'articles' %}">Статьи</a></li>
+          {% if request.user.is_authenticated %}
+          <li class="header__menuItem"><a href="{% url 'user_account' %}">Профиль</a></li>
+          <li class="header__menuItem"><a href="">Сообщения</a></li>
           <li class="header__menuItem"><a href="">Избранное</a></li>
-          <li class="header__menuItem"><a href="" class="btn btn--sub">Логин</a></li>
+          <li class="header__menuItem"><a href="{% url 'logout' %}" class="btn btn--sub">Выйти</a></li>
+          {% else %}
+          <li class="header__menuItem"><a href="{% url 'login' %}" class="btn btn--sub">Регистрация/Войти</a></li>
+          {% endif %}
         </ul>
       </nav>
     </div>

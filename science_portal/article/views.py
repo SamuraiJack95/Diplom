@@ -3,8 +3,11 @@ from .models import Article, Tag
 from django.core.paginator import EmptyPage
 
 
-def article(request):
+def start(request):
+    return render(request, 'article/start.html')
+
+def articles(request):
     art = Article.objects.all()
 
     context = {'article': art}
-    return render(request, 'article/index.html', context)
+    return render(request, 'article/articles.html', context)
