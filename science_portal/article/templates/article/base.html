@@ -12,12 +12,18 @@
   <title>Science Portal</title>
 </head>
 <body>
+{% include 'article/navbar.html' %}
+<!--{% if messages %}-->
+<!--{% for message in messages %}-->
+<!--<div style="text-align: center;">-->
+<!--  <div class="alert alert&#45;&#45;{{ message.tags }}">-->
+<!--    <p class="alert__message">{{ message }}</p>-->
+<!--    <button class="alert__close">x</button>-->
+<!--  </div>-->
+<!--</div>-->
+<!--{% endfor %}-->
+<!--{% endif %}-->
 
-<div class="content">
-    <div class="wrap">
-    {% block content %}
-    {% endblock %}
-    </div>
-</div>
+{% block content %}  {% endblock %}
 </body>
 </html>

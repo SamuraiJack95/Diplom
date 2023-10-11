@@ -8,6 +8,7 @@
         <ul class="header__menu">
           <li class="header__menuItem"><a href="{% url 'articles' %}">Статьи</a></li>
           {% if request.user.is_authenticated %}
+          <li class="header__menuItem"><a href="{% url 'create-article' %}">Добавить статью</a></li>
           <li class="header__menuItem"><a href="{% url 'user_account' %}">Профиль</a></li>
           <li class="header__menuItem"><a href="">Сообщения</a></li>
           <li class="header__menuItem"><a href="">Избранное</a></li>

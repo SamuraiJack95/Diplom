@@ -29,7 +29,7 @@
                 {% endif %}
               </ul>
               {% if request.user.profile.id != profile.id %}
-              <a href="{% url 'create-message' profile.id %}" class="btn btn--sub btn--lg">Send Message </a>
+              <a href="#" class="btn btn--sub btn--lg">Send Message </a>
               {% endif %}
             </div>
           </div>
@@ -94,5 +94,34 @@
         </div>
       </div>
     </div>
+    
+              <div class="devInfo">
+            <h3 class="devInfo__title">Projects</h3>
+            <div class="grid grid--two">
+              {% for article in article.article_set.all %}
+              <div class="column">
+                <div class="card project">
+                  <a href="{% url 'article' article.id %}" class="project">
+                    <img class="project__thumbnail" src="{{ article.featured_image.url }}" alt="project thumbnail" />
+                    <div class="card__body">
+                      <h3 class="project__title">{{ article.title }}</h3>
+                      <p><a class="project__author" href="{% url 'user_profile' article.owner.id %}">by {{ article.name }}</a></p>
+                      <p class="project--rating">
+                        <span style="font-weight: bold;">{{ article.vote_ratio }}%</span> Postitive
+                    Feedback ({{ article.vote_total }} Vote{{ article.vote_total| pluralize:'s' }})
+                      </p>
+                      <div class="project__tags">
+                        {% for tag in article.tags.all %}
+                        <span class="tag tag--pill tag--main">
+                          <small>NextJS</small>
+                        </span>
+                        {% endfor %}
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
   </main>
 {% endblock %}
