@@ -123,7 +123,11 @@ def delete_article(request, pk):
 #         return Blog.objects.filter(cat__slug=self.kwargs['cat_slug'],
 #                                    is_published=True).select_related('cat')
 #
-#
+# Куда это все вставть чтобы все это заработало !!!
 #
 # def get_queryset(self):
 #     return Blog.objects.filter(is_published= True).select_related('cat')
+
+#     def get_queryset(self):
+#         return Blog.objects.filter(cat__slug=self.kwargs['cat_slug'],
+#                                    is_published=True).select_related('cat')

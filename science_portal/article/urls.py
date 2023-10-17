@@ -9,4 +9,5 @@ urlpatterns = [
     path('create-article', views.create_article, name='create-article'),
     path('update-article/<str:pk>', views.update_article, name='update-article'),
     path('delete-article/<str:pk>', views.delete_article, name='delete-article'),
+    # path('tag/<slug:cat_slug>/', BlogCategory.as_view(), name='category'),
 ]
