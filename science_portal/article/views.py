@@ -6,20 +6,31 @@ from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.contrib import messages
 from django.views.generic import ListView
+
 def start(request):
     return render(request, 'article/start.html')
 
-def articles(request):
-    cat_selected = 0
-    ?
-    ?
-    if cat_selected == 0:
-        art = Article.objects.all()
+def articles(request, cat_slug=0):
+    if cat_slug == 0:
+        objects = Article.objects.all()
+        return render(request, 'article/articles.html', context={'objects': objects})
     else:
-        art = Category.get_queryset()?
+        category = Category.objects.get(cat_slug=cat_slug)
+        objects = Article.objects.filter(cat=category)
+        return render(request, 'article/articles.html', context={'objects': objects})
 
-    context = {'articles': art, 'cat_selected': cat_selected}
-    return render(request, 'article/articles.html', context)
+# def articles(request, cat):
+#     cat_selected = 0
+#     cat_selected = Category.objects.get(id=cat)
+#     ?
+#     ?
+#     if cat_selected == 0:
+#         art = Article.objects.all()
+#     else:
+#         art = Category.get_queryset()?
+#     ?
+#     context = {'articles': art, 'cat_selected': cat_selected}
+#     return render(request, 'article/articles.html', context)
 
 # def projects(request):
 #     pr = Project.objects.all()
