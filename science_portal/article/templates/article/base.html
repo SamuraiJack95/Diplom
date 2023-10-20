@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 {% load static %}
-{% load blog_tags %}
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -14,6 +13,8 @@
 </head>
 <body>
 {% include 'article/navbar.html' %}
+<!--{% include 'article/list_categories.html' %}-->
+
 <!--{% if messages %}-->
 <!--{% for message in messages %}-->
 <!--<div style="text-align: center;">-->
@@ -33,7 +34,7 @@
                 {% endif %}
 
                 {% for cat in cats %}
-                    {% if cat.blog__count > 0 %}
+                    {% if cat.article__count > 0 %}
                         {% if cat.pk == cat_selected %}
                             <li class="selected">{{ cat.name }}</li>
                         {% else %}

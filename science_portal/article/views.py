@@ -11,13 +11,14 @@ def start(request):
     return render(request, 'article/start.html')
 
 def articles(request, cat_slug=0):
+    categories = Category.objects.all()
     if cat_slug == 0:
         objects = Article.objects.all()
-        return render(request, 'article/articles.html', context={'objects': objects})
+        return render(request, 'article/articles.html', context={'objects': objects, 'cats': categories, 'cat_selected': 0})
     else:
         category = Category.objects.get(cat_slug=cat_slug)
         objects = Article.objects.filter(cat=category)
-        return render(request, 'article/articles.html', context={'objects': objects})
+        return render(request, 'article/articles.html', context={'objects': objects, 'cats': categories, 'cat_selected': category.id})
 
 # def articles(request, cat):
 #     cat_selected = 0
