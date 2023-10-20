@@ -75,3 +75,6 @@ class Category(models.Model):
     def get_absolute_url(self):
         return reverse('category', kwargs={'cat_slug': self.slug})
 
+    def get_queryset(self):
+        return Article.objects.filter(cat__slug=self.kwargs['cat_slug'],
+                                    is_published=True).select_related('cat')

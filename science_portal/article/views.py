@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Article, Tag
+from .models import Article, Tag, Category
 from django.shortcuts import render, redirect
 from .forms import ArticleForm, ReviewForm
 from django.contrib.auth.decorators import login_required
@@ -10,8 +10,14 @@ def start(request):
     return render(request, 'article/start.html')
 
 def articles(request):
-    art = Article.objects.all()
     cat_selected = 0
+    ?
+    ?
+    if cat_selected == 0:
+        art = Article.objects.all()
+    else:
+        art = Category.get_queryset()?
+
     context = {'articles': art, 'cat_selected': cat_selected}
     return render(request, 'article/articles.html', context)
 
