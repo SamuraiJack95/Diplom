@@ -6,12 +6,13 @@ from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.contrib import messages
 from django.views.generic import ListView
+from django.db.models import Count
 
 def start(request):
     return render(request, 'article/start.html')
 
 def articles(request, cat_slug=0):
-    categories = Category.objects.all()
+    categories = Category.objects.annotate(Count('article'))
     if cat_slug == 0:
         objects = Article.objects.all()
         return render(request, 'article/articles.html', context={'objects': objects, 'cats': categories, 'cat_selected': 0})

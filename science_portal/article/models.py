@@ -4,7 +4,7 @@ from django.urls import reverse
 
 class Article(models.Model):
     owner = models.ForeignKey(Profile, on_delete=models.SET_NULL, blank=True, null=True)
-    slug = models.SlugField(max_length=200, unique=True)
+    slug = models.SlugField(max_length=200, unique=True, default=0)
     title = models.CharField(max_length=200)
     authors = models.CharField(max_length=500)
     description = models.TextField(null=True, blank=True)
