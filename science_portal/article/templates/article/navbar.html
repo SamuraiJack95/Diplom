@@ -6,12 +6,12 @@
       </a>
       <nav class="header__nav">
         <ul class="header__menu">
+          <li class="header__menuItem" id="us" >Пользователь: {{ user }}</li>
           <li class="header__menuItem"><a href="{% url 'articles' %}">Статьи</a></li>
           {% if request.user.is_authenticated %}
           <li class="header__menuItem"><a href="{% url 'create-article' %}">Добавить статью</a></li>
           <li class="header__menuItem"><a href="{% url 'user_account' %}">Профиль</a></li>
           <li class="header__menuItem"><a href="">Сообщения</a></li>
-          <li class="header__menuItem"><a href="">Избранное</a></li>
           <li class="header__menuItem"><a href="{% url 'logout' %}" class="btn btn--sub">Выйти</a></li>
           {% else %}
           <li class="header__menuItem"><a href="{% url 'login' %}" class="btn btn--sub">Регистрация/Войти</a></li>

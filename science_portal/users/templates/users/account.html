@@ -1,29 +1,52 @@
 {% extends 'article/base.html' %}
 {% block content %}
+
   <!-- Main Section -->
-  <main class="settingsPage profile my-md">
-    <div class="container">
+  <main class="profile my-md">
+    <div class="container_profile">
       <div class="layout">
-        <div class="column column--1of3">
-          <div class="card text-center">
-            <div class="card__body dev">
-              <a class="tag tag--pill tag--main settings__btn" href="{% url 'edit-account' %}"><i class="im im-edit"></i> Edit</a>
-              <img class="avatar avatar--xl dev__avatar" src="{{ profile.profile_image.url }}" />
-              <h2 class="dev__name">{{ profile.name }}</h2>
-              <p class="dev__title">{{ profile.short_info }}</p>
+        <div class="profile_part_1">
+          <img class="avatar_profile" src="{{ profile.profile_image.url }}" />
+          <div class="profile_part_1_1_1">
+              <h2 class="pro_name">{{ profile.name }}</h2>
+              <p class="pro_inf">{{ profile.short_info }}</p>
+              {% if request.user.profile.id != profile.id %}
+              <a href="#" class="enter_button">Send Message </a>
+              {% endif %}
+            <div class="profile_part_1_2">
+              <div class="pro_bio">
+                  <h3 class="pro_title">About Me</h3>
+                <p class="pro_about">
+                  {{ profile.bio }}
+                </p>
+              </div>
             </div>
           </div>
+          <a class="profile_edit" href="{% url 'edit-account' %}"><i class="im im-edit"></i>Изменить</a>
         </div>
-        <div class="column column--2of3">
-          <div class="devInfo">
-            <h3 class="devInfo__title">About Me</h3>
-            <p class="devInfo__about">
-              {{ profile.bio }}
-            </p>
+        <div class="profile_part_2">
+
+          <h3 class="title_articles">Мои Статьи:</h3>
+          <div class="articleses">
+            {% for article in profile.article_set.all %}
+            <div class="razmet">
+              <div class="card_artile">
+                <a href="{% url 'article' article.id %}" class="profile_article">
+                  <img class="profile_article_img" src="{{ article.featured_image.url }}"/>
+                  <div class="profile_body_article">
+                    <h3 class="profile_title_article">{{ article.title| truncatechars:35 }}</h3>
+                  </div>
+                </a>
+                <div class="tabl_edit_article">
+                    <a class="edit_article_a" id="edit" href="{% url 'update-article' article.id %}"><i class="edit_article"></i>Изменить</a>
+                    <a class="delete_article_a" id="delete" href="{% url 'delete-article' article.id %}"><i class="delete_article"></i>Удалить</a>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
           </div>
         </div>
       </div>
     </div>
   </main>
-
 {% endblock %}

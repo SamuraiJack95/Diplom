@@ -3,9 +3,9 @@
 {% load static %}
 
     <!-- Main Section -->
-    <main class="formPage my-xl">
-        <div class="content-box">
-            <div class="formWrapper">
+    <main class="form_main">
+        <div class="form_content">
+            <div class="form_wraper">
                 <a class="backButton" href="{% url 'user_account' %}"><img src="{% static 'images/left.png' %}" alt="left"></a>
                 <br>
 
@@ -14,12 +14,12 @@
                     {% csrf_token %}
                     {% for field in form %}
                     <div class="form__field">
-                        <label for="formInput#text">{{field.label}}</label>
+                        <label>{{field.label}}</label>
                         {{ field }}
                     </div>
                     {% endfor %}
 
-                    <input class="btn btn--sub btn--lg  my-md" type="submit" value="Submit" />
+                    <input class="enter_button" type="submit" value="Готово!" />
                 </form>
             </div>
         </div>

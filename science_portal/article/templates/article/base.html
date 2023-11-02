@@ -15,16 +15,16 @@
 {% include 'article/navbar.html' %}
 <!--{% include 'article/list_categories.html' %}-->
 
-<!--{% if messages %}-->
-<!--{% for message in messages %}-->
-<!--<div style="text-align: center;">-->
-<!--  <div class="alert alert&#45;&#45;{{ message.tags }}">-->
-<!--    <p class="alert__message">{{ message }}</p>-->
-<!--    <button class="alert__close">x</button>-->
-<!--  </div>-->
-<!--</div>-->
-<!--{% endfor %}-->
-<!--{% endif %}-->
+{% if messages %}
+{% for message in messages %}
+<div style="text-align: center;">
+  <div class="alert alert--{{ message.tags }}">
+    <p class="alert__message">{{ message }}</p>
+    <button class="alert__close">x</button>
+  </div>
+</div>
+{% endfor %}
+{% endif %}
        <div class="sidebar">
             <ul>
                 {% if cat_selected == 0 %}

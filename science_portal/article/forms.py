@@ -23,11 +23,8 @@ class ReviewForm(ModelForm):
 class ArticleForm(ModelForm):
     class Meta:
         model = Article
-        fields = ['title', 'featured_image', 'description', 'tags']
+        fields = ['title', 'authors', 'slug', 'featured_image', 'description', 'file']
 
-        widgets = {
-            'tags': forms.CheckboxSelectMultiple(),
-        }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

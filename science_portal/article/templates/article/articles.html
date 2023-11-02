@@ -4,19 +4,21 @@
 
 <div class="content">
     <div class="wrap">
-        <h1>Научные статьи</h1>
+        <h1 class="articles_head">Научные статьи</h1>
 
         <div class="block">
-            {% for article in articles %}
+            {% for article in objects %}
+            {% if article.is_published == True %}
             <div class="element">
                 <div>
                     <img src="{{ article.featured_image.url }}" alt="">
                 </div>
                 <div class="text">
-                    <h2><a href="{% url 'article' article.id %}" target="_blank">{{ article.title| truncatechars:50 }}</a></h2>
+                    <h2 class="text_articles"><a href="{% url 'article' article.id %}" target="_blank">{{ article.title| truncatechars:50 }}</a></h2>
                     <p class="text_art">{{ article.description| truncatechars:120 }}</p>
                 </div>
             </div>
+            {% endif %}
             {% endfor %}
         </div>
     </div>

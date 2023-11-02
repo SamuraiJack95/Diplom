@@ -3,19 +3,19 @@ from users.models import Profile
 from django.urls import reverse
 
 class Article(models.Model):
-    owner = models.ForeignKey(Profile, on_delete=models.SET_NULL, blank=True, null=True)
-    slug = models.SlugField(max_length=200, unique=True, default=0)
-    title = models.CharField(max_length=200)
-    authors = models.CharField(max_length=500)
-    description = models.TextField(null=True, blank=True)
-    featured_image = models.ImageField(null=True, blank=True, upload_to="article/%Y/%m/%d")
-    tags = models.ManyToManyField('Tag', blank=True)
+    owner = models.ForeignKey(Profile, on_delete=models.SET_NULL, blank=True, null=True, verbose_name='Пользователь')
+    slug = models.SlugField(max_length=200, unique=True, default=0, verbose_name='Ссылка')
+    title = models.CharField(max_length=200, verbose_name='Название')
+    authors = models.CharField(max_length=500, blank=True, verbose_name='Автор')
+    description = models.TextField(null=True, blank=True, verbose_name='Описание')
+    featured_image = models.ImageField(null=True, blank=True, upload_to="article/%Y/%m/%d", verbose_name='Изображение')
+    tags = models.ManyToManyField('Tag', blank=True, verbose_name='Тэг')
     vote_total = models.IntegerField(default=0, null=True, blank=True)
     vote_ratio = models.IntegerField(default=0, null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
-    file = models.FileField(null=True, blank=True, upload_to='article_f/%Y/%m/%d')
-    cat = models.ForeignKey('Category', on_delete=models.PROTECT, null=True)
-    is_published = models.BooleanField(default=True)
+    file = models.FileField(null=True, blank=True, upload_to='article_f/%Y/%m/%d', verbose_name='Файл публикации')
+    cat = models.ForeignKey('Category', on_delete=models.PROTECT, null=True, blank=True)
+    is_published = models.BooleanField(default=False)
 
     def get_absolute_url(self):
         return reverse('articles', kwargs={'articles_slug': self.slug})

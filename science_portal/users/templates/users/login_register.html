@@ -4,22 +4,19 @@
 
 {% if page == 'register' %}
 
-<div class="auth">
-      <div class="card">
+<div class="form_main">
+      <div class="form_content">
         <div class="auth__header text-center">
-          <a href="/">
-            <img class="log" src="{% static 'images/logo.jpg' %}" alt="icon" />
-          </a>
-          <h3>Register an Account</h3>
-          <p>Create a new developer account</p>
+          <h3>Регистрация аккаунта</h3>
+          <p>Здравствуй молодой познаватель!</p>
         </div>
 
-        <form action="{% url 'register' %}" method="post" class="form auth__form">
+        <form action="{% url 'register' %}" method="post" class="form">
           {% csrf_token %}
           <!-- Input:Text -->
           {% for field in form %}
           <div class="form__field">
-            <label for="formInput#text">{{ field.label }}</label>
+            <label>{{ field.label }}</label>
             {{ field }}
 
             {% for error in field.errors %}
@@ -30,31 +27,30 @@
 
 
           <div class="auth__actions">
-            <input class="btn btn--sub btn--lg" type="submit" value="Sign  In" />
+            <input class="btn btn--sub btn--lg" type="submit" value="Регистрация" />
           </div>
         </form>
-        <div class="auth__alternative">
-          <p>Already have an Account?</p>
-          <a href="{% url 'login' %}">Log In</a>
+        <div class="regiss">
+          <p>У вас есть аккаунт?</p>
+          <a href="{% url 'login' %}">Вход</a>
         </div>
       </div>
     </div>
 {% else %}
-<div class="auth">
-      <div class="card">
+<div class="form_main">
+      <div class="form_content">
         <div class="auth__header text-center">
           <a href="/">
-            <img class="log" src="{% static 'images/logo.jpg' %}" alt="icon" />
           </a>
-          <h3>Account Login</h3>
-          <p>Hello Developer, Welcome Back!</p>
+          <h3>Регистрация аккаунта</h3>
+          <p>Здравствуй молодой познаватель!</p>
         </div>
 
-        <form action="{% url 'login' %}" method="post" class="form auth__form">
+        <form action="{% url 'login' %}" method="post" class="form">
             {% csrf_token %}
           <!-- Input:Email -->
           <div class="form__field">
-            <label for="formInput#text">Username: </label>
+            <label >Username: </label>
             <input
               class="input input--text"
               id="formInput#text"
@@ -66,7 +62,7 @@
 
           <!-- Input:Password -->
           <div class="form__field">
-            <label for="formInput#password">Password: </label>
+            <label>Password: </label>
             <input
               class="input input--password"
               id="formInput#passowrd"
@@ -75,14 +71,14 @@
               placeholder="••••••••"
             />
           </div>
-          <div class="auth__actions">
-            <input class="btn btn--sub btn--lg" type="submit" value="Log In" />
-            <a href="forgetpassword.html">Forget Password?</a>
+          <div class="regiss">
+            <input class="enter_button" type="submit" value="Вход" />
+            <a href="forgetpassword.html">Забили пароль?</a>
           </div>
         </form>
-        <div class="auth__alternative">
-          <p>Don’t have an Account?</p>
-          <a href="{% url 'register' %}">Sign Up</a>
+        <div class="regiss">
+          <p>Создать аккаунт?</p>
+          <a href="{% url 'register' %}">Регистрация</a>
         </div>
       </div>
     </div>

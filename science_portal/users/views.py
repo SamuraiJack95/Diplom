@@ -66,9 +66,10 @@ def register_user(request):
 @login_required(login_url='login')
 def user_account(request):
     prof = request.user.profile
-    # article = prof.article_set.all()
+    articles = prof.article_set.all()
     context = {
-        'profile': prof
+        'profile': prof,
+        'articles': articles,
     }
     return render(request, 'users/account.html', context)
 
