@@ -1,0 +1,38 @@
+{% extends 'article/base.html' %}
+{% block content %}
+{% load static %}
+
+<main class="form_message">
+        <div class="content__box1">
+            <div class="form_wrapper">
+                <a class="backButton" href="{% url 'user_profile' recipient.id %}"><img src="{% static 'images/left.png' %}" alt="left"></a>
+                <br>
+
+                <form class="form" method="POST">
+                    {% csrf_token %}
+
+                    {% if not request.user.is_authenticated %}
+                    <div class="form__field">
+                        <label>{{ form.name.label }}:</label>
+                        {{ form.name }}
+                    </div>
+                    <div class="form__field">
+                        <label>{{ form.email.label }}:</label>
+                        {{ form.email }}
+                    </div>
+                    {% endif %}
+
+                    <div class="form__field">
+                        <label>{{ form.subject.label }}</label>
+                        {{ form.subject }}
+                    </div>
+                    <div class="form__field">
+                        <label>{{ form.body.label }}</label>
+                        {{ form.body }}
+                    </div>
+                    <input class="enter_button" type="submit" value="Готово!" />
+                </form>
+            </div>
+        </div>
+    </main>
+{% endblock %}

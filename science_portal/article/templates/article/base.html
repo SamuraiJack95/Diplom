@@ -13,7 +13,6 @@
 </head>
 <body>
 {% include 'article/navbar.html' %}
-<!--{% include 'article/list_categories.html' %}-->
 
 {% if messages %}
 {% for message in messages %}
@@ -26,19 +25,19 @@
 {% endfor %}
 {% endif %}
        <div class="sidebar">
-            <ul>
+            <ul class="cat">
                 {% if cat_selected == 0 %}
                 <li class="selected">Все категории</li>
                 {% else %}
-                <li><a href="{% url 'articles' %}">Все категории</a></li>
+                <li class="selected" id="nan"><a href="{% url 'articles' %}">Все категории</a></li>
                 {% endif %}
 
                 {% for cat in cats %}
                     {% if cat.article__count > 0 %}
                         {% if cat.pk == cat_selected %}
-                            <li class="selected">{{ cat.name }}</li>
+                            <li class="selected" id="non">{{ cat.name }}</li>
                         {% else %}
-                            <li><a href="{{ cat.get_absolute_url }}">{{ cat.name }}</a></li>
+                            <li class="nonslected"><a href="{{ cat.get_absolute_url }}">{{ cat.name }}</a></li>
                         {% endif %}
                     {% endif %}
                 {% endfor %}

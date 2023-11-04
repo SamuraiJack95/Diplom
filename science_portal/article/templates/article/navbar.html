@@ -7,12 +7,12 @@
       <nav class="header__nav">
         <ul class="header__menu">
           <li class="header__menuItem" id="us" >Пользователь: {{ user }}</li>
-          <li class="header__menuItem"><a href="{% url 'articles' %}">Статьи</a></li>
+          <a href="{% url 'articles' %}" class="header__menuItem"><li class="header__menuItem">Статьи</li></a>
           {% if request.user.is_authenticated %}
-          <li class="header__menuItem"><a href="{% url 'create-article' %}">Добавить статью</a></li>
-          <li class="header__menuItem"><a href="{% url 'user_account' %}">Профиль</a></li>
-          <li class="header__menuItem"><a href="">Сообщения</a></li>
-          <li class="header__menuItem"><a href="{% url 'logout' %}" class="btn btn--sub">Выйти</a></li>
+          <a href="{% url 'create-article' %}" class="header__menuItem"><li class="header__menuItem">Добавить статью</li></a>
+          <a href="{% url 'user_account' %}" class="header__menuItem"><li class="header__menuItem">Профиль</li></a>
+          <a href="{% url 'inbox' %}" class="btn btn--sub"><li class="header__menuItem">Сообщения</li></a>
+          <a href="{% url 'logout' %}" class="btn btn--sub"><li class="header__menuItem">Выйти</li></a>
           {% else %}
           <li class="header__menuItem"><a href="{% url 'login' %}" class="btn btn--sub">Регистрация/Войти</a></li>
           {% endif %}

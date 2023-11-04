@@ -1,0 +1,33 @@
+{% extends 'article/base.html' %}
+{% block content %}
+{% load static %}
+  <!-- Main Section -->
+  <main class="inbox_message">
+    <div class="content_box">
+      {% if unread_count > 0 %}
+      <h3 class="inbox_title">New Messages(<span>{{ unread_count }}</span>)</h3>
+      {% endif %}
+      <ul class="messages">
+        {% for message in messages_request %}
+        {% if message.is_read == False %}
+        <li class="message" id="message_unread">
+          <a href="{% url 'message' message.id %}">
+            <span class="message_author">{{ message.name }}</span>
+            <span class="message_subject">{{ message.subject }}</span>
+            <span class="message_date">{{ message.created }}</span>
+          </a>
+        </li>
+        {% else %}
+        <li class="message">
+          <a href="{% url 'message' message.id %}">
+            <span class="message_author">{{ message.name }}</span>
+            <span class="message_subject">{{ message.subject }}</span>
+            <span class="message_date">{{ message.created }}</span>
+          </a>
+        </li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+  </main>
+{% endblock %}

@@ -86,6 +86,7 @@ body{
 #us{
     background: #ffffff;
     flex-basis: content;
+    width:200px;
 }
 
 .element, .count{
@@ -291,7 +292,7 @@ body{
 .form{
     display: block;
     border: 0.7rem;
-    padding: 20px;
+    padding: 10px;
     text-align: left;
 
 }
@@ -301,18 +302,16 @@ body{
     margin-bottom: 1.5rem;
     color: #ffffff;
     font-style: normal;
+    width: 100%;
 }
 
 .enter_button{
-    width: auto;
+    width: 95%;
     height: auto;
     text-align: center;
 
-
     border-width: 1px;
-    padding: 5px 11px 2px;
-
-
+    padding: 5px 50px 2px;
 
 }
 
@@ -396,6 +395,30 @@ label, input{
 .single_article_about{
     font-size: 20px;
     color: #ffffff;
+}
+
+.square_fail{
+    width:60px;
+    height:90px;
+    margin: 20px;
+    margin-left: 30px;
+    text-align: center;
+}
+
+.faill{
+
+}
+
+.text_fail{
+    font-size: 20px;
+    color: #ffffff;
+    font-weight: bold;
+   }
+
+.fail_img{
+    margin-top: 10px;
+    width: 65px;
+    height: 65px;
 }
 
 .head_tags{
@@ -672,4 +695,218 @@ a, li{
     border-radius: 15px;
     padding: 5px;
     color: #ffffff;
+}
+
+.inbox_message{
+    padding: 20px;
+}
+
+.content_box{
+    margin: 40px;
+    margin-bottom: 40px;
+    padding: 20px;
+    width: 1100px;
+    border: 20px;
+    border-radius:30px;
+
+    height: auto;
+    background-color: #e777e3d6;
+}
+
+.inbox_title{
+    font-size: 20px;
+}
+
+
+
+.inbox_message {
+  height: 90vh;
+}
+
+.inbox_title,
+.inbox_title span {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #b7e4ff;
+  text-transform: uppercase;
+  text-align: left;
+  margin-bottom: 3rem;
+}
+
+.inbox_title span {
+  color: #ffffff;
+}
+
+.messages {
+  list-style: none;
+  background: #d574749c;
+  padding: 0.5rem 3rem;
+  border: 2px solid var(--color-light);
+  border-radius: 0.7rem;
+}
+
+.message {
+  padding: 1.5rem 0;
+}
+
+.message > a span {
+  font-size: 1.45rem;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+
+.message > a {
+  display: flex;
+  gap: 1rem;
+}
+
+.message_author,
+.message_date {
+  flex-basis: 25%;
+}
+
+.message_subject {
+  flex-basis: 50%;
+}
+
+.message_date {
+  text-align: right;
+}
+
+.content__box1{
+    margin: 40px;
+    margin-left: 150px;
+    margin-bottom: 40px;
+    padding: 20px;
+    width: 400px;
+    border: 20px;
+    border-radius:30px;
+
+    height: auto;
+    background-color: #e777e3d6;
+}
+
+.deltext{
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.dela{
+    font-size: 19px;
+    color: black;
+}
+
+.delinput{
+    margin-top: 20px;
+    font-weight: bold;
+    width:70px;
+}
+
+#message_unread {
+  margin-bottom: 5px;
+  background: #f3d9d99c;
+  padding: 0.5rem 3rem;
+  border-radius: 0.7rem;
+  font-size: 24px;
+  color: red;
+}
+
+.content__box{
+    display: block;
+    width: 400px;
+    height: auto;
+    margin: 30px;
+    padding: 20px;
+    background-color: #db7dcc;
+    border-radius:20px;
+    margin-left: 150px;
+    margin-top: 40px;
+}
+
+.message{
+
+
+}
+
+.message__subject{
+    text-align: center;
+    margin-top: 5px;
+    color: #c4ffe4;
+}
+
+.message__date{
+    font-size:15px;
+    color: blue;
+}
+
+.message__body{
+    display: block;
+    width: 90%;
+    height: auto;
+    background-color: #f5baba;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.backButton1{
+    padding: 5px;
+    margin: 0px;
+}
+
+.buckimg_1{
+    width:50px;
+    height:50px;
+}
+
+.message__author{
+    color: #ffffff;
+}
+
+.sidebar{
+    margin-left: 20px;
+    text-align:left;
+
+}
+
+.cat{
+    display: inline-flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nonslected{
+    color: #red;
+    margin: 0px;
+    width: 150px;
+    font-size: 16px;
+    padding: 20px;
+    border: 1px solid #FFF;
+    font-weight: bold;
+    background: #fb46d3;
+    align-items: center;
+    border-radius: 20px;
+
+}
+
+.selected{
+    color: #ffffff;
+    margin: 0px;
+    width: 150px;
+    font-size: 16px;
+    padding: 20px;
+    border: 1px solid #FFF;
+    font-weight: bold;
+    background: #fd2491;
+    align-items: center;
+    border-radius: 20px;
+}
+
+#non{
+
+}
+
+#nan{
+    height:40px;
+    background: #fb46d3;
 }

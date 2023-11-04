@@ -1,4 +1,5 @@
 {% extends 'article/base.html' %}
+{% load static %}
 {% block content %}
   <!-- Main Section -->
   <main class="single_article">
@@ -22,6 +23,12 @@
           <h3 class="single_article_about">О чем статья?</h3>
           <div class="single_article_info">
             {{ article.description }}
+          </div>
+          <div class='square_fail'>
+            <a class="faill" href="{{ article.file.url }}" target="_blank" download="True">
+              <span class="text_fail">Статья</span>
+              <img class="fail_img" src="{% static 'images/file.jpg' %}">
+            </a>
           </div>
         </div>
         <div class="article_single_square_3">

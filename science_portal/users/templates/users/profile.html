@@ -12,7 +12,7 @@
               <p class="pro_inf">{{ profile.short_info }}</p>
             <div class="profile_part_1_2">
               <div class="pro_bio">
-                  <h3 class="pro_title">About Me</h3>
+                  <h3 class="pro_title">Обо мне</h3>
                 <p class="pro_about">
                   {{ profile.bio }}
                 </p>
@@ -20,7 +20,7 @@
             </div>
           </div>
           {% if request.user.profile.id != profile.id %}
-          <a href="#" class="profile_edit_1">Написать сообщение</a>
+          <a href="{% url 'create-message' profile.id %}" class="profile_edit_1">Написать сообщение</a>
           {% endif %}
         </div>
         <div class="profile_part_2">
