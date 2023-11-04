@@ -86,7 +86,7 @@ body{
 #us{
     background: #ffffff;
     flex-basis: content;
-    width:200px;
+    width: 260px;
 }
 
 .element, .count{
@@ -388,7 +388,8 @@ label, input{
     color: #ffffff;
 }
 .single_article_title{
-    margin-left: 750px;
+    width: 565px;
+    margin-left: 650px;
     color: pink;
     font-size: 30px;
 }
@@ -864,7 +865,7 @@ a, li{
 }
 
 .sidebar{
-    margin-left: 20px;
+    margin-left: 65px;
     text-align:left;
 
 }
