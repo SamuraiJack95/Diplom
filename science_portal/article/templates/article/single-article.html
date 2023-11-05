@@ -38,7 +38,9 @@
               {{ article.vote_ratio }}% Положительный отзов ({{ article.vote_total }} Голос {{ article.vote_total| pluralize:'ов' }})
             </h5>
         </div>
-        {% if request.user.profile.id in article.reviewers %}
+        {% if request.user.is_staff %}
+          <p>Вы админ!</p>
+        {% elif request.user.profile.id in article.reviewers %}
         <p>You have already submitted your review for this article!</p>
         {% elif request.user.profile == article.owner %}
         <p>You can't review your own project!</p>

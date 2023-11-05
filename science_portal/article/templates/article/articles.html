@@ -14,7 +14,7 @@
                     <img src="{{ article.featured_image.url }}" alt="">
                 </div>
                 <div class="text">
-                    <h2 class="text_articles"><a href="{% url 'article' article.id %}" target="_blank">{{ article.title| truncatechars:50 }}</a></h2>
+                    <h2 class="text_articles"><a href="{% url 'article' article.id %}">{{ article.title| truncatechars:50 }}</a></h2>
                     <p class="text_art">{{ article.description| truncatechars:120 }}</p>
                 </div>
             </div>
